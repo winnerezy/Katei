@@ -6,16 +6,18 @@ Katei is a web application built with Next.js and TypeScript designed to help st
 Features
 
 ## Features
-Assignment Management:
+### Assignment Management:
 Create, edit, and delete assignments with due dates, descriptions, and priority levels.
-Organize assignments by course or subject.
+
+### Organize assignments by course or subject.
 Set reminders for upcoming deadlines.
-Task Management:
+
+### Task Management:
 Break down large assignments into smaller, actionable tasks.
 Track task completion and progress.
-Calendar Integration:
+
+### Calendar Integration:
 Visualize assignments and deadlines on a calendar.
-Sync with Google Calendar or other calendar services (optional).
 
 ## Technology Stack
 
@@ -26,7 +28,7 @@ Sync with Google Calendar or other calendar services (optional).
     Clone the repository:
     Bash
 
-    git clone https://github.com/your-username/katei.git
+    git clone https://github.com/winnerezy/katei.git
 
     Use code with caution.
 
