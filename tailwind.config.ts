@@ -76,7 +76,6 @@ const config = {
       },
     },
   },
-  darkMode: "class",
  plugins: [nextui()],
 } satisfies Config
 
