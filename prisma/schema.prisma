@@ -7,8 +7,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Users {
+  @@map("users")
+  id String @id @default(uuid()) @unique
   username String @unique
   avatar String?
+  task Tasks[]
+}
 
+model Tasks {
+  @@map("tasks")
+  id String @id @default(uuid()) @unique
+  title String
+  description String
+  userid String
+  user Users @relation(fields: [userid], references: [id])
+  status status @default(not_done)
+  createdat DateTime @default(now())
+}
+
+enum status {
+  not_done
+  done
 }

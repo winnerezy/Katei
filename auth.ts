@@ -10,6 +10,27 @@ export const { handlers, auth } = NextAuth({
   callbacks: {
     async redirect({ url, baseUrl }) {
         return url.startsWith(`${baseUrl}/register`) ? `${baseUrl}/dashboard` : url;
+    },
+    async signIn({ user }){
+      try {
+        const existingUser = await prisma.users.findUnique({
+          where: {
+            username: user.name!
+          }
+        })
+        if(!existingUser){
+          await prisma.users.create({
+            data: {
+              username: user.name!,
+              avatar: user.image
+            }
+          })
+        }
+        return true
+      } catch (error: any) {
+        console.log(error.message)
+        return false
+      }
     }
     }
   }

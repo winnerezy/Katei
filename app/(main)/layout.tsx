@@ -14,17 +14,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-      <NextUIProvider>
-        <Provider store={store}>
-            <main className="flex w-full min-h-screen">
-                <SideBar/>
+    <NextUIProvider>
+      <Provider store={store}>
+          <main className="flex w-full min-h-screen">
+              <SideBar/>
+              <section className="w-full">
                 {children}
-            </main>
-        </Provider>
-      </NextUIProvider>
-      </body>
-    </html>
+              </section>
+          </main>
+      </Provider>
+    </NextUIProvider>
   );
 }

@@ -8,7 +8,7 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./node_modules/@nextui-org/theme/dist/components/(calendar|button|ripple|spinner).js"
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   prefix: "",
   theme: {
@@ -76,7 +76,8 @@ const config = {
       },
     },
   },
-  plugins: [nextui()],
+  darkMode: "class",
+ plugins: [nextui()],
 } satisfies Config
 
 export default config

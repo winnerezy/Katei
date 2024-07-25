@@ -1,10 +1,16 @@
+import { cn } from "@/lib/utils"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { ReactNode } from "react"
 
 
-export const NavButton = ({ children }: { children: ReactNode }) => {
+export const NavButton = ({ path, children }: { path: string, children: ReactNode }) => {
+  
+  const pathname = usePathname()
+
   return (
-    <div className="relative cursor-pointer w-[200px] h-12 rounded-[10px] shadow-md flex items-center justify-center bg-white">
+    <Link href={`${path}`} className={cn("relative cursor-pointer w-full md:w-[200px] h-12 rounded-[10px] flex items-center justify-center", path === pathname ? "bg-white shadow-md" : "")}>
         { children }
-    </div>
+    </Link>
   )
 }
