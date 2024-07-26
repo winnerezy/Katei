@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { TrendingUp } from "lucide-react"
 import { Label, Pie, PieChart } from "recharts"
 
@@ -18,14 +18,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { Segment } from "./Segment"
-const chartData = [
-  { browser: "chrome", assignments: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", assignments: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", assignments: 287, fill: "var(--color-firefox)" },
-  { browser: "edge", assignments: 173, fill: "var(--color-edge)" },
-  { browser: "other", assignments: 190, fill: "var(--color-other)" },
-]
+import { useSelector } from "react-redux"
 
 const chartConfig = {
   assignments: {
@@ -54,6 +47,14 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export const Chart = () => {
+
+  const tasks: Task[] = useSelector((state: any) => state.tasks.tasks)
+
+  const chartData = [
+    { name: "tasks", assignments: tasks.length, fill: "var(--color-chrome)" },
+    { name: "assignments", assignments: tasks.length, fill: "var(--color-safari)" }
+  ]
+
   const totalAssignments = useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.assignments, 0)
   }, [])
@@ -77,7 +78,7 @@ export const Chart = () => {
               <Pie
                   data={chartData}
                   dataKey="assignments"
-                  nameKey="browser"
+                  nameKey="assignments"
                   innerRadius={60}
                   strokeWidth={5}
               >
@@ -96,7 +97,7 @@ export const Chart = () => {
                               y={viewBox.cy}
                               className="fill-foreground text-3xl font-bold"
                           >
-                              {totalAssignments.toLocaleString()}
+                              {totalAssignments}
                           </tspan>
                           <tspan
                               x={viewBox.cx}

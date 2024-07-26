@@ -16,7 +16,7 @@ export const Auth = ({ type }: Auth) => {
                 { type === "register" ? "Register" : "Login" }
             </h1>
             <Button
-                className="w-[300px] flex items-center gap-4 bg-[--button] text-[--text2] hover:bg-[--button-hover] "
+                className="w-[300px] flex items-center gap-4 text-[--text2] bg-black hover:bg-black"
                 onClick={() => signIn()}
             >
                 <BsGithub className="size-8"/>

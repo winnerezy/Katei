@@ -10,9 +10,8 @@ import { HelpCircle, Settings } from "lucide-react";
 import Link from "next/link";
 import { BsPerson } from "react-icons/bs";
 
-export const ProfileImage = async() => {
-
-    const user = await getCurrentUser();
+export const ProfileImage = async () => {
+  const user = await getCurrentUser();
   return (
     <div className="self-end">
       <Popover>
@@ -22,21 +21,25 @@ export const ProfileImage = async() => {
             <AvatarFallback>{user?.name!}</AvatarFallback>
           </Avatar>
         </PopoverTrigger>
-        <PopoverContent className="w-[300px] h-48 space-y-4 mr-4">
+        <PopoverContent className="w-[300px] h-48 flex flex-col gap-y-4 mr-4">
           <Link href={"/profile"}>
             <Button className="relative w-full px-4 items-center gap-6 bg-white text-black border border-[border-bg]">
               <BsPerson className="absolute left-4" />
               <p>Profile</p>
             </Button>
           </Link>
-          <Button className="relative w-full px-4 items-center gap-6 bg-white text-black border border-[border-bg]">
-            <Settings className="absolute left-4" size={20} />
-            <p>Settings</p>
-          </Button>
-          <Button className="relative w-full px-4 items-center gap-6 bg-white text-black border border-[border-bg]">
-            <HelpCircle className="absolute left-4" size={20} />
-            <p>Help</p>
-          </Button>
+          <Link href={"/settings"}>
+            <Button className="relative w-full px-4 items-center gap-6 bg-white text-black border border-[border-bg]">
+              <Settings className="absolute left-4" size={20} />
+              <p>Settings</p>
+            </Button>
+          </Link>
+          <Link href={"/help"}>
+            <Button className="relative w-full px-4 items-center gap-6 bg-white text-black border border-[border-bg]">
+              <HelpCircle className="absolute left-4" size={20} />
+              <p>Help</p>
+            </Button>
+          </Link>
         </PopoverContent>
       </Popover>
     </div>

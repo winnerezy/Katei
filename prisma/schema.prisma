@@ -13,6 +13,7 @@ model Users {
   username String @unique
   avatar String?
   task Tasks[]
+  assignments Assignments[]
 }
 
 model Tasks {
@@ -28,5 +29,14 @@ model Tasks {
 
 enum status {
   not_done
-  done
+  completed
+}
+
+model Assignments {
+  @@map("assignments")
+  id String @id @default(uuid()) @unique
+  title String
+  due DateTime
+  userid String
+  user Users @relation(fields: [userid], references: [id])
 }

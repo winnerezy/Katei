@@ -1,6 +1,6 @@
 'use client'
 
-import { CalendarCog, LucideLayoutDashboard, Notebook, PanelBottomClose, SidebarCloseIcon, XIcon } from "lucide-react"
+import { CalendarCog, LucideLayoutDashboard, Notebook, PanelBottomClose, PencilIcon, SidebarCloseIcon, XIcon } from "lucide-react"
 import { NavButton } from "./NavButton"
 import { cn } from "@/lib/utils"
 import { useDispatch, useSelector } from "react-redux"
@@ -42,6 +42,10 @@ export const SideBar = () => {
         <NavButton path="/planner">
             <CalendarCog className="absolute left-4"/>
             <p>Planner</p>
+        </NavButton>
+        <NavButton path="/pdf2questions">
+            <PencilIcon className="absolute left-4"/>
+            <p>Questions</p>
         </NavButton>
     </aside>
   )

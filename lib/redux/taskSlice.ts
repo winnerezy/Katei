@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchTasks } from "./thunk";
 
-
 const initialState = {
     tasks: [] as Task[],
     loading: false,

@@ -3,7 +3,6 @@ import { Chart } from "@/components/Chart";
 import { DailyTasks } from "@/components/DailyTasks";
 import { Header } from "@/components/Header";
 import { Calendar } from "@nextui-org/calendar";
-import { getCurrentUser } from "@/lib/actions";
 import { ProfileImage } from "@/components/ProfileImage";
 
 export default async function Dashboard() {
