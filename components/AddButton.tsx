@@ -4,6 +4,7 @@ import { PlusCircleIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useDispatch } from "react-redux";
 import { onOpen } from "@/lib/redux/modalSlice";
+import React from "react";
 
 export const AddButton = () => {
   const dispatch = useDispatch();
@@ -12,10 +13,12 @@ export const AddButton = () => {
     <>
       <Button
         onClick={() => dispatch(onOpen())}
-        className="w-8 h-8 absolute right-4 top-8"
+        className="w-24 h-8 self-end hover:bg-[--button-hover]"
       >
         <PlusCircleIcon className="size-6 z-40 absolute" />
       </Button>
     </>
   );
 };
+
+

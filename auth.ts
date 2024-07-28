@@ -9,7 +9,7 @@ export const { handlers, auth } = NextAuth({
   })],
   callbacks: {
     async redirect({ url, baseUrl }) {
-        return url.startsWith(`${baseUrl}/register`) ? `${baseUrl}/dashboard` : url;
+        return url.startsWith(`${baseUrl}/login`) ? `${baseUrl}/dashboard` : url;
     },
     async signIn({ user }){
       try {
@@ -32,6 +32,10 @@ export const { handlers, auth } = NextAuth({
         return false
       }
     }
+    },
+    pages: {
+      signOut: "/login"
     }
-  }
+  },
 )
+

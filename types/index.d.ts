@@ -15,6 +15,14 @@ declare type NewTask = {
 
 }
 
+declare type NewDocument = {
+    type: string
+    userid: string
+    title: string
+    description: string | null
+    due: Date
+}
+
 declare type User = {
     id: string
     username: string

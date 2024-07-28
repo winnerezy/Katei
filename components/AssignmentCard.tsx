@@ -14,7 +14,7 @@ export const AssignmentCard = ({
 
   dayjs.extend(relativeTime)
   return (
-    <article className="relative max-w-[600px] w-full h-[150px] rounded-[10px] shadow-sm border p-2 flex gap-2">
+    <article className="relative max-w-[600px] w-full h-[150px] rounded-[10px] shadow-sm border border-[--border-bg] p-2 flex gap-2">
       <div className="flex flex-col w-full gap-4">
         <Image src="/public/card.svg" alt="assignment" width={30} height={30} />
         <p className="text-md font-bold tracking-wide">{title}</p>

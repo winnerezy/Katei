@@ -22,12 +22,64 @@ export const getCurrentUserData = async ({
   return user;
 };
 
+//  switching between creating task and creating assignment
+export const createItem = async ({
+  userid,
+  title,
+  description,
+  type,
+  due
+}: NewDocument) => {
+  if (type === "Task") {
+    try {
+      await prisma.tasks.create({
+        data: {
+          title,
+          description: description!,
+          userid,
+        },
+      });
+    } catch (error: any) {
+      console.log(error.message);
+      return;
+    }
+  } else if (type === "Assignment") {
+    try {
+      await prisma.assignments.create({
+        data: {
+          title,
+          due: due.toISOString(),
+          userid,
+        },
+      });
+    } catch (error: any) {
+      console.log(error.message);
+      return;
+    }
+  }
+};
+
 export const createTask = async ({ userid, title, description }: NewTask) => {
   try {
     await prisma.tasks.create({
       data: {
         title,
         description,
+        userid,
+      },
+    });
+  } catch (error: any) {
+    console.log(error.message);
+    return;
+  }
+};
+
+export const createAssignment = async ({ userid, title }: Assignment) => {
+  try {
+    await prisma.assignments.create({
+      data: {
+        title,
+        due: new Date(),
         userid,
       },
     });
@@ -88,6 +140,6 @@ export const getAssignments = async () => {
     return userAssignments;
   } catch (error: any) {
     console.log(error.message);
-    return []
+    return [];
   }
 };

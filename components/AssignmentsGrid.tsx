@@ -18,7 +18,7 @@ export const AssignmentsGrid = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full place-items-center">
       {assignments?.map((assignment) => (
-        <AssignmentCard {...assignment} />
+        <AssignmentCard {...assignment} key={assignment.id}/>
       ))}
     </section>
   );
