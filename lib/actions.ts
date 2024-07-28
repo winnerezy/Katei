@@ -28,7 +28,7 @@ export const createItem = async ({
   title,
   description,
   type,
-  due
+  due,
 }: NewDocument) => {
   if (type === "Task") {
     try {
@@ -49,6 +49,7 @@ export const createItem = async ({
         data: {
           title,
           due: due.toISOString(),
+          description,
           userid,
         },
       });
@@ -56,36 +57,6 @@ export const createItem = async ({
       console.log(error.message);
       return;
     }
-  }
-};
-
-export const createTask = async ({ userid, title, description }: NewTask) => {
-  try {
-    await prisma.tasks.create({
-      data: {
-        title,
-        description,
-        userid,
-      },
-    });
-  } catch (error: any) {
-    console.log(error.message);
-    return;
-  }
-};
-
-export const createAssignment = async ({ userid, title }: Assignment) => {
-  try {
-    await prisma.assignments.create({
-      data: {
-        title,
-        due: new Date(),
-        userid,
-      },
-    });
-  } catch (error: any) {
-    console.log(error.message);
-    return;
   }
 };
 
@@ -143,3 +114,71 @@ export const getAssignments = async () => {
     return [];
   }
 };
+
+export const getAssignment = async (id: string) => {
+  try {
+    const data = await prisma.assignments.findUnique({
+      where: {
+        id,
+      },
+    });
+    return data;
+  } catch (error: any) {
+    console.log(error.message);
+    return null;
+  }
+};
+
+export const editItem = async (
+  id: string,
+  title: string,
+  description: string,
+  due: Date
+) => {
+  // if (type === "Task") {
+    try {
+      await prisma.assignments.update({
+        where: {
+          id,
+        },
+        data: {
+          title,
+          due,
+          description
+        },
+      });
+    } catch (error: any) {
+      console.log(error.message);
+      return;
+    }
+  // } else if (type === "Assignment") {
+  //   try {
+  //     await prisma.assignments.update({
+  //       where: {
+  //         id,
+  //       },
+  //       data: {
+  //         title,
+  //         due: due.toISOString(),
+  //       },
+  //     });
+  //   } catch (error: any) {
+  //     console.log(error.message);
+  //     return;
+  //   }
+  // }
+};
+
+export const deleteAssignment = async (id: string) => {
+  try {
+    await prisma.assignments.delete({
+      where: {
+        id,
+      },
+    });
+    return "Done"
+  } catch (error: any) {
+    console.log(error.message);
+    return error.message
+  }
+}

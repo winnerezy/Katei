@@ -36,6 +36,7 @@ model Assignments {
   @@map("assignments")
   id String @id @default(uuid()) @unique
   title String
+  description String?
   due DateTime
   userid String
   user Users @relation(fields: [userid], references: [id])

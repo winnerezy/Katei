@@ -32,6 +32,7 @@ declare type User = {
 declare type Assignment = {
     id: string
     title: string
+    description: string | null
     due: Date
     userid: string
 }
