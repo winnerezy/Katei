@@ -17,7 +17,7 @@ export const Hero = () => {
         </p>
         <Button 
         className="bg-[--button] text-[--text2] hover:bg-[--button-hover] flex items-center gap-2"
-        onClick={()=> router.push('/register')}
+        onClick={()=> router.push('/login')}
         >
            <p>Get Started</p>
            <ArrowRight className="w-4 h-4"/>

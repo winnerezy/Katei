@@ -24,7 +24,7 @@ export const Header = () => {
         onClick={handleSideBar}
         />
         <p className="text-2xl font-bold">Katei</p>
-        <button onClick={()=> signOut({ callbackUrl: '/register' })} className="bg-red-400">CLick it</button>
+        <button onClick={()=> signOut({ callbackUrl: '/login' })} className="bg-red-400">CLick it</button>
     </header>
   )
 }
