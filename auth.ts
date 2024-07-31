@@ -20,13 +20,13 @@ export const { handlers, auth } = NextAuth({
     },
     async signIn({ user }){
       try {
-        const existingUser = await prisma.users.findUnique({
+        const existingUser = await prisma.user.findUnique({
           where: {
             username: user.name!
           }
         })
         if(!existingUser){
-          await prisma.users.create({
+          await prisma.user.create({
             data: {
               username: user.name!,
               avatar: user.image
