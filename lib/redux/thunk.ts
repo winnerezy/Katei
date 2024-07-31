@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAssignments, getTasks } from "../actions";
+import { getAssignments, getFlashCardDecks, getTasks } from "../actions";
 
 export const fetchTasks = createAsyncThunk(
   'task/fetchTasks',
@@ -14,5 +14,13 @@ export const fetchAssignments = createAsyncThunk(
   async() => {
     const response: Assignment[] = await getAssignments();
     return response;
+  }
+)
+
+export const fetchDecks = createAsyncThunk(
+  'flashcard/fetchDecks',
+  async() => {
+    const response: Deck[] = await getFlashCardDecks()
+    return response
   }
 )

@@ -3,7 +3,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import {
   Button,
-  useDisclosure,
   Textarea,
   Input,
   Select,
@@ -13,7 +12,7 @@ import {
 } from "@nextui-org/react";
 import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { onOpen, onClose as close } from "../lib/redux/modalSlice";
+import { onOpen, onClose as close } from "../../lib/redux/modalSlice";
 import { createItem, getCurrentUserData } from "@/lib/actions";
 import { fetchAssignments, fetchTasks } from "@/lib/redux/thunk";
 import { AppDispatch } from "@/lib/redux/store";

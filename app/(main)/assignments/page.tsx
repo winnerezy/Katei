@@ -1,8 +1,7 @@
 import { AddButton } from "@/components/AddButton";
 import { AssignmentsGrid } from "@/components/AssignmentsGrid";
-import EditModal from "@/components/EditModal";
 import { Header } from "@/components/Header";
-import NewModal from "@/components/NewModal";
+import NewModal from "@/components/modals/NewModal";
 import { ProfileImage } from "@/components/ProfileImage";
 import { getCurrentUser } from "@/lib/actions";
 

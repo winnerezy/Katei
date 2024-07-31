@@ -36,3 +36,19 @@ declare type Assignment = {
     due: Date
     userid: string
 }
+
+declare type Deck = {
+    id: string
+    name: string
+    description: string | null
+    userid: string
+    createdat: Date
+    flashcards: FlashCard[]
+}
+
+declare type FlashCard = {
+    id: string
+    question: string
+    answer: string
+    userid: string
+}

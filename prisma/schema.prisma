@@ -7,22 +7,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Users {
+model User {
   @@map("users")
   id String @id @default(uuid()) @unique
   username String @unique
   avatar String?
-  task Tasks[]
-  assignments Assignments[]
+  task Task[]
+  assignments Assignment[]
+  flashcards FlashCard[]
+  flashcardfolders FlashCardFolder[]
 }
 
-model Tasks {
+model Task {
   @@map("tasks")
   id String @id @default(uuid()) @unique
   title String
   description String
   userid String
-  user Users @relation(fields: [userid], references: [id])
+  user User @relation(fields: [userid], references: [id])
   status status @default(not_done)
   createdat DateTime @default(now())
 }
@@ -32,12 +34,35 @@ enum status {
   completed
 }
 
-model Assignments {
+model Assignment {
   @@map("assignments")
   id String @id @default(uuid()) @unique
   title String
   description String?
   due DateTime
   userid String
-  user Users @relation(fields: [userid], references: [id])
+  user User @relation(fields: [userid], references: [id])
+}
+
+model FlashCard {
+  @@map("flashcard")
+  id String @id @default(uuid()) @unique
+  question String
+  answer String
+  folderid String
+  userid String
+  user User @relation(fields: [userid], references: [id])
+  folder FlashCardFolder @relation(fields: [folderid], references: [id])
+  createdat DateTime @default(now())
+}
+
+model FlashCardFolder {
+  @@map("flashcardfolder")
+  id String @id @default(uuid()) @unique
+  name String
+  description String?
+  createdat DateTime @default(now())
+  flashcards FlashCard[]
+  userid String
+  user User @relation(fields: [userid], references: [id])
 }

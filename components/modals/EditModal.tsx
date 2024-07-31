@@ -5,8 +5,6 @@ import {
   Button,
   Textarea,
   Input,
-  Select,
-  SelectItem,
   DatePicker,
 } from "@nextui-org/react";
 import Modal from "@mui/material/Modal";
@@ -22,7 +20,7 @@ import { CircularProgress } from "@nextui-org/progress";
 export default function EditModal({
   id,
   title: assignmentTitle,
-  description: assignmentsDescription,
+  description: assignmentDescription,
   due,
 }: {
   id: string;
@@ -34,7 +32,7 @@ export default function EditModal({
   const dispatch = useDispatch<AppDispatch>();
 
   const [title, setTitle] = useState<string>(assignmentTitle || "");
-  const [description, setDescription] = useState<string>(assignmentsDescription || "");
+  const [description, setDescription] = useState<string>(assignmentDescription || "");
 
   const initialDate = due ? new Date(due) : new Date();
   const [date, setDate] = useState<Date>(initialDate);
@@ -45,13 +43,13 @@ export default function EditModal({
     if (assignmentTitle) {
       setTitle(assignmentTitle);
     }
-    if(assignmentsDescription){
-      setDescription(assignmentsDescription);
+    if(assignmentDescription){
+      setDescription(assignmentDescription);
     }
     if (due) {
       setDate(new Date(due));
     }
-  }, [assignmentTitle, due, assignmentsDescription]);
+  }, [assignmentTitle, due, assignmentDescription]);
 
   const handleTitle = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -116,6 +114,7 @@ export default function EditModal({
             <Textarea
               placeholder="Enter the description"
               maxLength={300}
+              defaultValue={assignmentDescription ? assignmentDescription : ""}
               onChange={handleDescription}
             />
             <DatePicker

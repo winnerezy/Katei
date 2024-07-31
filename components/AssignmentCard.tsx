@@ -16,7 +16,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { cn } from "@/lib/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { openEditModal } from "@/lib/redux/editModalSlice";
-import EditModal from "./EditModal";
+import EditModal from "./modals/EditModal";
 import { deleteAssignment } from "@/lib/actions";
 import { fetchAssignments } from "@/lib/redux/thunk";
 import { AppDispatch } from "@/lib/redux/store";
@@ -56,7 +56,7 @@ export const AssignmentCard = ({
       <div className="flex flex-col w-full gap-2">
         <Image src="/public/card.svg" alt="assignment" width={30} height={30} />
         <div className="flex flex-col gap-2">
-        <p className="text-md font-bold tracking-wide">{title}</p>
+        <p className="text-md font-bold tracking-wide line-clamp-1">{title}</p>
         <p className="text-sm font-light">{ description }</p>
         </div>
         <div>

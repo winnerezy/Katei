@@ -5,7 +5,7 @@ import { fetchAssignments } from "@/lib/redux/thunk";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AssignmentCard } from "./AssignmentCard";
-import EditModal from "./EditModal";
+import EditModal from "./modals/EditModal";
 
 export const AssignmentsGrid = () => {
   const dispatch = useDispatch<AppDispatch>();

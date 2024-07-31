@@ -4,6 +4,7 @@ import modalReducer from './modalSlice';
 import editModalReducer from './editModalSlice';
 import taskReducer from './taskSlice';
 import assignmentReducer from './assignmentSlice';
+import FlashCardReducer from './flashCardSlice';
 
 const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
         modal: modalReducer,
         tasks: taskReducer,
         assignments: assignmentReducer,
-        editModal: editModalReducer
+        editModal: editModalReducer,
+        flashcard: FlashCardReducer
     }
 })
 

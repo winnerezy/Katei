@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Calendar } from "@nextui-org/calendar";
 import { ProfileImage } from "@/components/ProfileImage";
 import { AddButton } from "@/components/AddButton";
-import NewModal from "@/components/NewModal";
+import NewModal from "@/components/modals/NewModal";
 import { getCurrentUser } from "@/lib/actions";
 
 export default async function Dashboard() {

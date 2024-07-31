@@ -15,8 +15,9 @@ export const AssignmentBar = () => {
   useEffect(() => {
     dispatch(fetchAssignments());
   }, []);
+  
   return (
-    <Swiper spaceBetween={30} slidesPerView={window.innerWidth < 1000 ? 1 : 2} className="w-full space-x-4">
+    <Swiper spaceBetween={30} slidesPerView={2} className="w-full space-x-4">
       {assignments?.map((assignment) => (
         <SwiperSlide>
           <AssignmentCard {...assignment} />
