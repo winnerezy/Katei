@@ -15,8 +15,6 @@ export const FlashCardGrid = () => {
 
   const decks: Deck[] = useSelector((state: any) => state.flashcard.decks);
 
-  console.log(decks)
-
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16">
       {decks.map((deck) => (

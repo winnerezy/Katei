@@ -17,14 +17,14 @@ export const Auth = ({ type }: Auth) => {
                 { type === "register" ? "Register" : "Login" }
             </h1>
             <Button
-                className="w-[400px] flex items-center gap-8 text-[--text2] bg-black hover:bg-black"
+                className="max-w-[400px] w-full flex items-center gap-8 text-[--text2] bg-black hover:bg-black"
                 onClick={() => signIn()}
             >
                 <BsGithub className="size-8"/>
                 <p className="text-xl">Login</p>
             </Button>
             <Button
-                className="w-[400px] flex items-center gap-8 text-[--text2] bg-white hover:bg-white border-black border-2"
+                className="max-w-[400px] w-full flex items-center gap-8 text-[--text2] bg-white hover:bg-white border-black border-2"
                 onClick={() => signIn()}
             >
                 <FcGoogle className="size-8"/>

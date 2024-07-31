@@ -2,7 +2,8 @@
 import { fetchDecks } from "./thunk";
 
 type State = {
-    isOpen: boolean
+    isOpen: boolean,
+    flashcards: FlashCard[]
     decks: Deck[]
     loading: boolean
     error: string | null
@@ -12,6 +13,7 @@ type State = {
 
 const initialState = {
     isOpen: false,
+    flashcards: [],
     decks: [] as Deck[],
     loading: false,
     error: null,
@@ -23,8 +25,9 @@ const flashCardModalSlice = createSlice({
     name: 'flashcard',
     initialState,
     reducers: {
-        open: (state) => {
-            state.isOpen = true
+        open: (state, action: PayloadAction<FlashCard[]>) => {
+            state.isOpen = true;
+            state.flashcards = action.payload;;
         },
         close: (state) => {
             state.isOpen = false

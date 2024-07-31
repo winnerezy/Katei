@@ -23,6 +23,7 @@ export default function Flashcards() {
       <FlashCardGrid />
       <CreateDeckModal />
       <NewFlashCard/>
+      <FlashCardModal/>
     </section>
   );
 }

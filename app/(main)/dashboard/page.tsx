@@ -2,11 +2,11 @@ import { AssignmentBar } from "@/components/AssignmentBar";
 import { Chart } from "@/components/Chart";
 import { DailyTasks } from "@/components/DailyTasks";
 import { Header } from "@/components/Header";
-import { Calendar } from "@nextui-org/calendar";
 import { ProfileImage } from "@/components/ProfileImage";
 import { AddButton } from "@/components/AddButton";
 import NewModal from "@/components/modals/NewModal";
 import { getCurrentUser } from "@/lib/actions";
+import { Calendar } from "@/components/Calendar";
 
 export default async function Dashboard() {
 
@@ -21,10 +21,10 @@ export default async function Dashboard() {
       </section>
       <div className="relative self-center max-w-[1000px] flex-grow w-full h-max flex flex-col items-center justify-center gap-4">
       <AddButton />
-        <section className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-4"> 
+        <section className="flex flex-wrap w-full gap-4"> 
         <DailyTasks />
         <Chart />
-        <Calendar className="md:w-[300px] w-full flex items-center justify-center" />
+        <Calendar/>
         </section>
       </div>
       <NewModal username={user?.name!} />

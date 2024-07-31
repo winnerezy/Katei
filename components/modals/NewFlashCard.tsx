@@ -62,7 +62,6 @@ export default function NewFlashCard() {
     <Modal
       open={state}
       onClose={() => dispatch(closeFlashCardModal())}
-      className="md:ml-[250px]"
     >
       <Box className="max-w-[1000px] w-full h-[500px] mx-2 p-6 flex flex-col bg-white rounded-lg absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] gap-8">
         <div className="flex gap-4 w-full items-center">

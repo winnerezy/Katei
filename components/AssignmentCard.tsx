@@ -16,7 +16,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { cn } from "@/lib/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { openEditModal } from "@/lib/redux/editModalSlice";
-import EditModal from "./modals/EditModal";
 import { deleteAssignment } from "@/lib/actions";
 import { fetchAssignments } from "@/lib/redux/thunk";
 import { AppDispatch } from "@/lib/redux/store";
