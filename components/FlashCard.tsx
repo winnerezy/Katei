@@ -9,7 +9,7 @@ export const FlashCard = ({ question, answer }: { question: string, answer: stri
 
   return (
     <motion.div 
-    className="max-w-[600px] h-[300px] w-full rounded-md p-2 flex items-center justify-center border-2 border-black self-center bg-[--bg]"
+    className="max-w-[600px] h-[300px] w-full rounded-md p-2 flex items-center justify-center border border-black self-center bg-[--bg]"
     onClick={() => setIsFlipped(!isFlipped) }
     animate={{ rotateX: isFlipped ? 180 : 0 }}
     transition={{ duration: 0.5 }}

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
+import PlausibleProvider from "next-plausible";
+
 const poppins = Poppins({ subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600'] });
 
 export const metadata: Metadata = {
@@ -16,6 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+      <PlausibleProvider
+          trackLocalhost
+          enabled
+          domain="katei.vercel.app"
+        />
+      </head>
       <body className={`${poppins.className}`}>
         <SessionProvider>
           {children}
